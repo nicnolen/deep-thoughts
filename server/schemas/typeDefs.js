@@ -30,7 +30,10 @@ const typeDefs = gql`
   query through data and return an array of the Thought data type
   """
   type Query {
+    users: [User]
+    user(username: String!): User # ... ! means that the data must exist for the query to carry out
     thoughts(username: String): [Thought] # ... could recieve a parameter (username with a String datatype) if we wanted to
+    thought(_id: ID!): Thought
   }
 `; // This is a tagged template function, used to provide explicit details on how a library is used
 
