@@ -38,13 +38,21 @@ const typeDefs = gql`
   }
 
   """
-  query through data and return an array of the Thought data type
+  query through data and return the required user and thoughts data
   """
   type Query {
     users: [User]
     user(username: String!): User # ... ! means that the data must exist for the query to carry out
     thoughts(username: String): [Thought] # ... could recieve a parameter (username with a String datatype) if we wanted to
     thought(_id: ID!): Thought
+  }
+
+  """
+  create mutations to return users who successfully logged in or just signed up
+  """
+  type Mutation {
+    login(email: String!, password: String!): User # ... user cant login without email and password
+    addUser(username: String!, email: String!, password: String!): User
   }
 `; // This is a tagged template function, used to provide explicit details on how a library is used
 
