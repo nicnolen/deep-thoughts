@@ -1,9 +1,12 @@
 /* CREATE RESOLVERS TO PERFORM CRUD ACTIONS ON QUERIES AND MUTATIONS */
-// Resolver to server the response for the `helloWorld` query and
+// Import User and Thought models
+const { User, Thought } = require('../models')
+// Create resolvers
 const resolvers = {
+  // Thoughts query resolver
   Query: {
-    helloWorld: () => {
-      return 'Hello World!';
+    thoughts: async() => {
+      return Thought.find().sort({ createdAt: -1 });
     },
   },
 };
