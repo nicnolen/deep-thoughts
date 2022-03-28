@@ -49,6 +49,7 @@ const typeDefs = gql`
   query through data and return the required user and thoughts data
   """
   type Query {
+    me: User
     users: [User]
     user(username: String!): User # ... ! means that the data must exist for the query to carry out
     thoughts(username: String): [Thought] # ... could recieve a parameter (username with a String datatype) if we wanted to
