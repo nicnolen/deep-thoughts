@@ -8,15 +8,16 @@ const { signToken } = require('../utils/auth'); // Import signToken() function f
 const resolvers = {
   // QUERIES
   Query: {
-    me: async (parent, args) => {
-      const userData = await User.findOne({})
-        .select('-__v -password')
-        .populate('thoughts')
-        .populate('friends');
+    me: async (parent, args, context) => {
+      if (context.user) {
+        const userData = await User.findOne({ _id: context.user._id })
+          .select('-__v -password')
+          .populate('thoughts')
+          .populate('friends');
 
-      return userData;
+        return userData;
       }
-      
+
       throw new AuthenticationError('Not logged in');
     },
     // get all users
