@@ -4,7 +4,7 @@ const { User, Thought } = require('../models');
 
 // Create resolvers
 const resolvers = {
-  // Thoughts query resolver
+  // QUERIES
   Query: {
     // get all users
     users: async () => {
@@ -29,6 +29,16 @@ const resolvers = {
     thought: async (parent, { _id }) => {
       return Thought.findOne({ _id });
     },
+  },
+
+  // MUTATIONS
+  Mutation: {
+    addUser: async (parent, args) => {
+      const user = await User.create(args);
+
+      return user;
+    },
+    login: async () => {},
   },
 };
 
