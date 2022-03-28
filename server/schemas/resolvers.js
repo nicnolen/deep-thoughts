@@ -1,6 +1,7 @@
 /* CREATE RESOLVERS TO PERFORM CRUD ACTIONS ON QUERIES AND MUTATIONS */
-// Import User and Thought models
-const { User, Thought } = require('../models');
+// Import dependencies
+const { User, Thought } = require('../models'); // Import User and Thought models
+const { AuthenticationError } = require('apollo-server-express'); // Authentication
 
 // Create resolvers
 const resolvers = {
@@ -38,7 +39,21 @@ const resolvers = {
 
       return user;
     },
-    login: async () => {},
+    login: async (parent, { email, password }) => {
+      const user = await User.findOne({ email });
+
+      if (!user) {
+        throw new AuthenticationError('Incorrect credentials');
+      }
+
+      const correctPw = await user.isCorrectPassword(password);
+
+      if (!correctPw) {
+        throw new AuthenticationError('Incorrect credentials');
+      }
+
+      return user;
+    },
   },
 };
 
