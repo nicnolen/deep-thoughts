@@ -38,6 +38,14 @@ const typeDefs = gql`
   }
 
   """
+  include JWT
+  """
+  type Auth {
+    token: ID!
+    user: User
+  }
+
+  """
   query through data and return the required user and thoughts data
   """
   type Query {
@@ -51,8 +59,8 @@ const typeDefs = gql`
   create mutations to return users who successfully logged in or just signed up
   """
   type Mutation {
-    login(email: String!, password: String!): User # ... user cant login without email and password
-    addUser(username: String!, email: String!, password: String!): User
+    login(email: String!, password: String!): Auth # ... user cant login without email and password
+    addUser(username: String!, email: String!, password: String!): Auth
   }
 `; // This is a tagged template function, used to provide explicit details on how a library is used
 
