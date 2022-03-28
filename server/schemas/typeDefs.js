@@ -5,6 +5,17 @@ const { gql } = require('apollo-server-express');
 // Create our type definitions (typeDefs)
 const typeDefs = gql`
   """
+  create a User query that returns _id, username, email, friendCount, thoughts, and friends
+  """
+  type User {
+  _id: ID
+  username: String
+  email: String
+  friendCount: Int
+  thoughts: [Thought]
+  friends: [User]
+}
+
   create a Thought query that returns _id, thoughtText, username, and reactionCount fields and their GraphQL scalars(datatypes)
   """
   type Thought {
