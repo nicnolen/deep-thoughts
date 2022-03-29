@@ -1,6 +1,7 @@
 // Import dependencies
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express'); // Import ApolloServer
+const { authMiddleware } = require('./utils/auth');
 
 // Import personal files
 const { typeDefs, resolvers } = require('./schemas'); // Import typeDefs and resolvers
@@ -15,6 +16,7 @@ const startServer = async () => {
   const server = new ApolloServer({
     typeDefs,
     resolvers,
+    context: authMiddleware
   });
 
   // start the Apollo server
