@@ -69,6 +69,24 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+    addThought: async (parent, args, context) => {
+      // only allow logged in users to use this mutation
+      if (context.user) {
+        const thought = await Thought.create({
+          ...args,
+          username: context.user.username,
+        });
+
+        await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $push: { thoughts: thought._id } },
+          { new: true } // make Mongo return updated document
+        );
+        return thought;
+      }
+
+      throw new AuthenticationError('You need to be logged in!');
+    },
   },
 };
 
