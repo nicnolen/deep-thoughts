@@ -69,6 +69,7 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+    // add thought
     addThought: async (parent, args, context) => {
       // only allow logged in users to use this mutation
       if (context.user) {
@@ -87,6 +88,7 @@ const resolvers = {
 
       throw new AuthenticationError('You need to be logged in!');
     },
+    // add reaction
     addReaction: async (parent, { thoughtId, reactionBody }, context) => {
       if (context.user) {
         const updatedThought = await Thought.findOneAndUpdate(
@@ -100,6 +102,20 @@ const resolvers = {
         );
 
         return updatedThought;
+      }
+
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    // add friend
+    addFriend: async (parent, { friendId }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { friends: friendId } }, // user cant be friends with the same person twice so use $addToSet instead of $push
+          { new: true }
+        ).populate('friends');
+
+        return updatedUser;
       }
 
       throw new AuthenticationError('You need to be logged in!');
