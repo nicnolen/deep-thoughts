@@ -62,6 +62,9 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth # ... user cant login without email and password
     addUser(username: String!, email: String!, password: String!): Auth
+    addThought(thoughtText: String!): Thought
+    addReaction(thoughtId: ID!, reactionBody: String!): Thought
+    addFriend(friendId: ID!): User
   }
 `; // This is a tagged template function, used to provide explicit details on how a library is used
 
