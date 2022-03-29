@@ -1,5 +1,5 @@
-/* AUTHENTICATE JSON WEB TOKEN (JWT) */
-// Import dependencies
+//! AUTHENTICATE JSON WEB TOKEN (JWT) 
+//! Import dependencies
 const jwt = require('jsonwebtoken');
 
 const secret = 'mysecretsshhhhh'; // secret to enable the server to verify whether it recognizes the token

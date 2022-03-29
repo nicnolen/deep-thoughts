@@ -8,7 +8,7 @@ export const QUERY_THOUGHTS = gql`
       createdAt
       username
       reactionCount
-      reaction {
+      reactions {
         _id
         createdAt
         username
