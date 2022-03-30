@@ -1,0 +1,3 @@
+# Ignore all GraphQL typeDef and query files
+typeDefs.js
+queries.js

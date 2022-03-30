@@ -1,4 +1,4 @@
-#TODO: CREATE TYPE DEFINITIONS TO DEFINE THE DATA THE CLIENT CAN EXPECT TO WORK WITH
+"TODO: CREATE TYPE DEFINITIONS TO DEFINE THE DATA THE CLIENT CAN EXPECT TO WORK WITH"
 "Import the gql tagged template function used to provide explicit details on how a library is used"
 const { gql } = require('apollo-server-express');
 

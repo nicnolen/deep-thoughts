@@ -3,8 +3,11 @@
 import React from 'react';
 import { useParams } from 'react-router-dom'; //? React hook to access parameters of a current route
 import { useQuery } from '@apollo/client'; //? useQuery hook lets you fetch GraphQL data in React
-import { QUERY_THOUGHT } from '../utils/queries';
 
+import { QUERY_THOUGHT } from '../utils/queries';
+import ReactionList from '../components/ReactionList';
+
+//! Create a SingleThought component
 const SingleThought = props => {
   const { id: thoughtId } = useParams();
 
@@ -33,6 +36,10 @@ const SingleThought = props => {
           <p>{thought.thoughtText}</p>
         </div>
       </div>
+
+      {thought.reactionCount > 0 && (
+        <ReactionList reactions={thought.reactions} />
+      )}
     </div>
   );
 };

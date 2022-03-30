@@ -1,5 +1,5 @@
-'CREATE THE THOUGHT AND REACTION QUERIES';
-'Import dependencies';
+"TODO: CREATE THE THOUGHT AND REACTION QUERIES"
+"Import dependencies"
 import { gql } from '@apollo/client';
 
 export const QUERY_THOUGHTS = gql`
