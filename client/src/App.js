@@ -29,6 +29,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache(), // initiate a new cache
 });
 
+//! Create the App component
 function App() {
   return (
     <ApolloProvider client={client}>

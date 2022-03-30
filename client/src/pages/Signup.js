@@ -1,13 +1,22 @@
+//TODO: SIGNUP PAGE
+//! Import dependencies
 import React, { useState } from 'react';
+import { useMutation } from '@apollo/client';
+import { ADD_USER } from '../utils/mutations';
 
+//! Create the Signup Component
 const Signup = () => {
+  //* Declare form state
   const [formState, setFormState] = useState({
     username: '',
     email: '',
     password: '',
   });
 
-  //! update state based on form input changes
+  //* Allow React to use mutations
+  const [addUser, { error }] = useMutation(ADD_USER);
+
+  //* update state based on form input changes
   const handleChange = event => {
     const { name, value } = event.target;
 
@@ -17,9 +26,21 @@ const Signup = () => {
     });
   };
 
-  //! submit form
+  //* submit form
   const handleFormSubmit = async event => {
     event.preventDefault();
+
+    //? use try/catch instead of promises to handle errors
+    try {
+      //* execute addUser mutation and pass in variable data from form
+      const { data } = await addUser({
+        variables: { ...formState },
+      });
+      //* Log data to see if token is returned
+      console.info(data);
+    } catch (e) {
+      console.error(e);
+    } //* Error handling
   };
 
   return (
@@ -60,6 +81,8 @@ const Signup = () => {
                 Submit
               </button>
             </form>
+            {/* allow users to see error message */}
+            {error && <div>Sign up failed</div>}
           </div>
         </div>
       </div>
