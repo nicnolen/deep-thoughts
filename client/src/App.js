@@ -1,5 +1,5 @@
-//TODO: COMPONENT THAT HOUSES ALL OTHER COMPONENTS 
-//! Import Dependencies
+//TODO: COMPONENT THAT HOUSES ALL OTHER COMPONENTS
+//! Import dependencies
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import {
@@ -32,18 +32,21 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Router> {/* makes child components aware of client-side routing */}
-        <div className='flex-column justify-flex-start min-100-vh'>
+      {/* makes child components aware of client-side routing */}
+      <Router>
+        <div className="flex-column justify-flex-start min-100-vh">
           <Header />
-          <div className='container'>
-            <Switch> {/* sets the catch-all route */}
-              <Route exact path='/' component={Home} />
-              <Route exact path='/login' component={Login} />
-              <Route exact path='/signup' component={Signup} />
-              <Route exact path='/profile' component={Profile} />
-              <Route exact path='/thought' component={SingleThought} />
-
-              <Route component={NoMatch} /> {/* if route doesnt match any other path, users will see a 404 error */}
+          <div className="container">
+            {/* Switch sets the catch-all route */}
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/signup" component={Signup} />
+              {/* the : means this is a parameter. ? means the parameter is optional */}
+              <Route exact path="/profile/:username?" component={Profile} />
+              <Route exact path="/thought/:id" component={SingleThought} />
+              {/* if route doesnt match any other path, users will see a 404 error */}
+              <Route component={NoMatch} />{' '}
             </Switch>
           </div>
           <Footer />

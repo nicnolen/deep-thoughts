@@ -1,5 +1,5 @@
 //TODO: HEADER COMPONENT
-//! Import Dependencies
+//! Import dependencies
 import React from 'react';
 import { Link } from 'react-router-dom'; //? Link Changes the URL while staying on the same page
 

@@ -1,4 +1,5 @@
 //TODO: MAIN ENTRY POINT FOR THE APPLICATION
+//! Import dependencies
 import React from 'react';
 import ReactDOM from 'react-dom'; //? ReactDOM library renders App component at the root element in the HTML
 import './index.css';
