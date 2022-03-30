@@ -1,3 +1,4 @@
+//TODO: BACK END SERVER FILE
 //! Import dependencies
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express'); // Import ApolloServer
@@ -41,6 +42,7 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
 }
 
+//! Catch-all route where any route that isnt defined is treated as a 404 error
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });

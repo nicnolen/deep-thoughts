@@ -1,3 +1,4 @@
+//TODO: REACTION MODEL
 const { Schema } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 

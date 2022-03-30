@@ -1,5 +1,6 @@
+//TODO: MAIN ENTRY POINT FOR THE APPLICATION
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom'; //? ReactDOM library renders App component at the root element in the HTML
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
