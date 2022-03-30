@@ -1,8 +1,11 @@
 //TODO: SIGNUP PAGE
 //! Import dependencies
 import React, { useState } from 'react';
+
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
+
+import Auth from '../utils/auth';
 
 //! Create the Signup Component
 const Signup = () => {
@@ -36,8 +39,9 @@ const Signup = () => {
       const { data } = await addUser({
         variables: { ...formState },
       });
-      //* Log data to see if token is returned
-      console.info(data);
+      
+      //* Take the token and set it to localStorage
+      Auth.login(data.addUser.token);
     } catch (e) {
       console.error(e);
     } //* Error handling
