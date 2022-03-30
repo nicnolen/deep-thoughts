@@ -1,13 +1,15 @@
 //TODO: PAGE FOR USER PROFILE
 //! Import dependencies
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { Redirect, useParams } from 'react-router-dom'; //? Redirect lets you redirect the user to another route in the application
 
 import ThoughtList from '../components/ThoughtList';
 import FriendList from '../components/FriendList';
 
 import { useQuery } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
+
+import Auth from '../utils/auth';
 
 //! Create the Profile component
 const Profile = () => {
@@ -18,6 +20,11 @@ const Profile = () => {
   });
 
   const user = data?.me || data?.user || {};
+
+  //* redirect to personal profile page if username is the logged-in user's
+  if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
+    return <Redirect to="/profile" />;
+  }
 
   if (loading) {
     return <div>Loading...</div>;
