@@ -2,10 +2,12 @@
 //! Import dependencies
 import React from 'react';
 import { useParams } from 'react-router-dom'; //? React hook to access parameters of a current route
-import { useQuery } from '@apollo/client'; //? useQuery hook lets you fetch GraphQL data in React
 
-import { QUERY_THOUGHT } from '../utils/queries';
 import ReactionList from '../components/ReactionList';
+
+import { useQuery } from '@apollo/client'; //? useQuery hook lets you fetch GraphQL data in React
+import { QUERY_THOUGHT } from '../utils/queries';
+
 
 //! Create a SingleThought component
 const SingleThought = props => {
