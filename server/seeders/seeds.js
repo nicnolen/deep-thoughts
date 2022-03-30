@@ -1,6 +1,6 @@
-/* SEED THE DATABASE */
-// Faker.js helps generate dummy data to use
-const faker = require('faker');
+//TODO: SEED THE DATABASE 
+//! Import Dependencies
+const faker = require('faker'); //? Faker.js helps generate dummy data to use
 
 const db = require('../config/connection');
 const { Thought, User } = require('../models');

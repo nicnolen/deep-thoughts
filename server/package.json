@@ -12,7 +12,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "proxy": "http://localhost:3001/",
     "apollo-server-express": "^3.6.6",
     "bcrypt": "^4.0.1",
     "express": "^4.17.1",

@@ -1,4 +1,4 @@
-/* CREATE RESOLVERS TO PERFORM CRUD ACTIONS ON QUERIES AND MUTATIONS */
+//TODO: CREATE RESOLVERS TO PERFORM CRUD ACTIONS ON QUERIES AND MUTATIONS
 // Import dependencies
 const { User, Thought } = require('../models'); // Import User and Thought models
 const { AuthenticationError } = require('apollo-server-express'); // Authentication
