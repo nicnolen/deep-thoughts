@@ -29,15 +29,15 @@ export const LOGIN_USER = gql`
 
   export const ADD_FRIEND = gql`
     #! Mutation to add friends
-    mutation addFriend($id: ID!) {
-      addFriend(FriendID: $id) {
-        _id
-        username
-        friendCount
-        friends {
+      mutation addFriend($id: ID!) {
+        addFriend(friendId: $id) {
           _id
           username
+          friendCount
+          friends {
+            _id
+            username
+          }
         }
       }
-    }
-  `;
+    `;
