@@ -8,7 +8,6 @@ import ReactionList from '../components/ReactionList';
 import { useQuery } from '@apollo/client'; //? useQuery hook lets you fetch GraphQL data in React
 import { QUERY_THOUGHT } from '../utils/queries';
 
-
 //! Create a SingleThought component
 const SingleThought = props => {
   const { id: thoughtId } = useParams();

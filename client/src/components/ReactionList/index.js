@@ -1,4 +1,4 @@
-//TODO: REACTION COMPONENT WITH
+//TODO: REACTION COMPONENT
 //! Import dependencies
 import React from 'react';
 import { Link } from 'react-router-dom';
