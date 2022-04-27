@@ -15,7 +15,7 @@ A social media application called "Deep Thoughts," where users can create an acc
 
 ## Usage Instructions
 
-To use this app, follow this link to [Heroku](https://dashboard.heroku.com/apps/thawing-harbor-81793).
+To use this app, follow this link to [Heroku](https://thawing-harbor-81793.herokuapp.com/).
 
 ## License
 
