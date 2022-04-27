@@ -20,7 +20,6 @@
   "bugs": {
     "url": "https://github.com/nicnolen/deep-thoughts/issues"
   },
-  "homepage": "https://thawing-harbor-81793.herokuapp.com/",
   "devDependencies": {
     "concurrently": "^7.0.0"
   }
