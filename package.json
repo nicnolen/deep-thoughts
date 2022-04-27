@@ -5,6 +5,7 @@
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
+    "build": "cd client && npm run build",
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "seed": "cd server && npm run seed"
@@ -19,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/nicnolen/deep-thoughts/issues"
   },
-  "homepage": "https://thawing-harbor-81793.herokuapp.com/",
+  "homepage": "https://github.com/nicnolen/deep-thoughts#readme",
   "devDependencies": {
     "concurrently": "^7.0.0"
   }
